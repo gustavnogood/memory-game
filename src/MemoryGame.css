@@ -1,48 +1,67 @@
-body {
-    font-family: sans-serif;
-    text-align: center;
+/* Set up some basic styling for the game board */
+.memory-game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 800px;
   }
   
-  h1 {
-    margin-top: 2rem;
-  }
-  
-  h2 {
-    margin-top: 1rem;
-  }
-  
+  /* Style each individual card */
   .card {
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 3rem;
-    margin: 0.5rem;
-    padding: 1rem;
-    transition: transform 0.3s ease-in-out;
-    pointer-events: auto;
+    cursor: pointer;
+    height: 120px;
+    margin: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    width: 120px;
   }
   
-  .card-flip {
-    transform: rotateY(180deg);
-  }
-  
-  .card-flip .card-back {
-    transform: rotateY(180deg);
-  }
-  
-  .card-flip .card-front {
-    transform: rotateY(0deg);
-  }
-  
-  .card-front {
-    backface-visibility: hidden;
-    position: absolute;
-  }
-  
+  /* Style the front of the card */
+  .card-front,
   .card-back {
     backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
     position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Style the front of the card */
+  .card-front {
+    background-color: #FA8072;
+  }
+  
+  /* Style the back of the card */
+  .card-back {
+    background-color: #87CEEB;
     transform: rotateY(180deg);
+  }
+  
+  /* Flip the card when it's clicked */
+  .card-flipped .card-back {
+    transform: rotateY(0);
+  }
+  
+  .card-flipped .card-front {
+    transform: rotateY(180deg);
+  }
+  
+  /* Highlight matched cards */
+  .card-matched {
+    background-color: #90EE90;
+  }
+  
+  /* Add some basic styling to the button */
+  button {
+    margin: 10px auto;
+    padding: 10px;
   }
   
